@@ -1,0 +1,19 @@
+.card {
+    width: 200px;
+    height: 300px;
+
+    @media (max-width: 575px) {
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    a {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        bottom: 20px;
+        background-color: black;
+        border-color: black;
+        color: white;
+    }
+}

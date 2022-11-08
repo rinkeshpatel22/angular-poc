@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <form class="d-flex justify-content-center" [formGroup]='userFormGroup'>
+        <mat-form-field class="search-field">
+            <input matInput placeholder="Search user" [matAutocomplete]="autoComplete" formControlName='userInput'>
+        </mat-form-field>
+        <mat-autocomplete #autoComplete="matAutocomplete" [displayWith]="displaySelectedUser"
+            (optionSelected)="onOptionSelect($event)">
+            <mat-option *ngIf="isLoading">
+                <mat-spinner diameter="20"></mat-spinner>
+            </mat-option>
+            <ng-container *ngIf="!isLoading">
+                <mat-option *ngFor="let user of filteredUsers" [value]="user">
+                    <span>{{user.firstName}} {{user.lastName}}</span>
+                    <span class="text-muted"> ({{user.email}})</span>
+                </mat-option>
+            </ng-container>
+        </mat-autocomplete>
+    </form>
+</div>

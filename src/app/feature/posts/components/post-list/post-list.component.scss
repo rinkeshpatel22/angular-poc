@@ -1,0 +1,23 @@
+.list-container {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 500px;
+    width: 100%;
+}
+
+.customer-details {
+    @media (min-width: 576px) {
+        border-left: 1px solid #dddddd;
+    }
+
+    img {
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid #dddddd;
+    }
+}
+
+.viewport-container {
+    min-height: 500px;
+}

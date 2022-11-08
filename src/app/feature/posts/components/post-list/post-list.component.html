@@ -1,0 +1,31 @@
+<div class="container my-5" *ngIf="postDataSource">
+    <div class="pt-4">
+        <a routerLink="/home">Back to home</a>
+    </div>
+    <h3 class="text-center mt-5">Posts</h3>
+    <div class="viewport-container">
+        <cdk-virtual-scroll-viewport class="list-container" itemSize="50">
+            <ng-container *cdkVirtualFor="let post of postDataSource">
+                <div class="card p-4 m-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-9">
+                            <h3 class="text-center">{{post.title}}</h3>
+                            <p>{{post.body}}</p>
+                            <p clas="float-right">
+                                <span *ngFor="let tag of post.tags" class="text-muted">#{{tag}} </span>
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-3 customer-details text-center">
+                            <h6 class="mb-2">Author</h6>
+                            <div *ngIf="post.image; else loading">
+                                <img [src]="post.image" alt="image">
+                                <div class="mt-2">{{post.firstName}} {{post.lastName}}</div>
+                            </div>
+                            <ng-template #loading>Loading...</ng-template>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

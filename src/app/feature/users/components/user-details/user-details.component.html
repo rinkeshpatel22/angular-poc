@@ -1,0 +1,12 @@
+<div class="container my-5 w-100" *ngIf="user">
+    <div class="card text-center m-auto p-2">
+        <img [src]="user.image" class="card-img-top m-auto" alt="user">
+        <h3 class="mt-2">{{user.firstName}} {{user.lastName}}</h3>
+        <div>{{user.company.title}}</div>
+        <div>{{user.company.name}}</div>
+        <div>{{user.email}}</div>
+        <div>{{user.phone}}</div>
+        <div>{{user.address.address}}</div>
+        <div>{{user.address.city}} {{user.address.postalCode}} {{user.address.state}}</div>
+    </div>
+</div>
