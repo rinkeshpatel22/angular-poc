@@ -1,19 +1,21 @@
 .card {
-    width: 200px;
-    height: 300px;
+  height: 300px;
 
-    @media (max-width: 575px) {
-        margin: auto;
-        margin-bottom: 20px;
-    }
+  @media (min-width: 470px) and (max-width: 768px) {
+    height: 200px;
+  }
 
-    a {
-        position: absolute;
-        width: 80%;
-        left: 10%;
-        bottom: 20px;
-        background-color: black;
-        border-color: black;
-        color: white;
-    }
+  @media (min-width: 320px) and (max-width: 469px) {
+    height: 260px;
+  }
+
+  a {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    bottom: 20px;
+    background-color: black;
+    border-color: black;
+    color: white;
+  }
 }
