@@ -1,22 +1,38 @@
 <div class="container my-5 p-5">
-    <div class="d-flex justify-content-center">
-        <div class="m-3">
-            <app-card [header]="'Switchmap'" [body]="'Example of auto-complete / typeahead search component with switchmap. \n
-                Search user by typing chars, select user to view details'" [buttonText]="'Go to user page'"
-                [link]="'/users'">
-            </app-card>
-        </div>
-        <div class="m-3">
-            <app-card [header]="'Virtual scroll & takeUntil'"
-                [body]="'Example of http requests on demand while scrolling and map api response to existing data source'"
-                [buttonText]="'Go to posts page'" [link]="'/posts'">
-            </app-card>
-        </div>
-        <div class="m-3">
-            <app-card [header]="'Resolve & trackBy'"
-                [body]="'Example of fetching data from API before loading component and use of trackBy to ignore render of template again'"
-                [buttonText]="'Go to carts page'" [link]="'/carts'">
-            </app-card>
-        </div>
+  <div class="row">
+    <div class="col-12 col-md-4 mb-3">
+      <app-card
+        [header]="'Switchmap'"
+        [body]="
+          'Example of auto-complete / typeahead search component with switchmap. \n
+                Search user by typing chars, select user to view details'
+        "
+        [buttonText]="'Go to user page'"
+        [link]="'/users'"
+      >
+      </app-card>
     </div>
+    <div class="col-12 col-md-4 mb-3">
+      <app-card
+        [header]="'Virtual scroll & takeUntil'"
+        [body]="
+          'Example of http requests on demand while scrolling and map api response to existing data source'
+        "
+        [buttonText]="'Go to posts page'"
+        [link]="'/posts'"
+      >
+      </app-card>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <app-card
+        [header]="'Resolve & trackBy'"
+        [body]="
+          'Example of fetching data from API before loading component and use of trackBy to ignore render of template again'
+        "
+        [buttonText]="'Go to carts page'"
+        [link]="'/carts'"
+      >
+      </app-card>
+    </div>
+  </div>
 </div>
