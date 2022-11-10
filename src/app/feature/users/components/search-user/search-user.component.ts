@@ -7,7 +7,6 @@ import { User, UserResponse } from '../../models/user';
 import { UserStateService } from '../../services/user-state.service';
 import { UserService } from '../../services/user.service';
 
-
 export interface IUserResponse {
   total: number;
   results: User[];
@@ -16,28 +15,35 @@ export interface IUserResponse {
 @Component({
   selector: 'app-search-user',
   templateUrl: './search-user.component.html',
-  styleUrls: ['./search-user.component.scss']
+  styleUrls: ['./search-user.component.scss'],
 })
 export class SearchUserComponent implements OnInit, OnDestroy {
-
   public filteredUsers: User[] = [];
   public userFormGroup: FormGroup = this.formBuilder.group({ userInput: null });
   public isLoading = false;
-  public subscriber: Subscription | undefined;
+  public subscriber?: Subscription;
   @ViewChild('autoComplete') public autoComplete: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private userStateService: UserStateService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.subscriber = this.userFormGroup?.get('userInput')?.valueChanges.pipe(
-      tap(() => this.isLoading = true),
-      switchMap((value: string) => this.userService.searchUser(value)
-        .pipe(finalize(() => this.isLoading = false))))
-      .subscribe((response: UserResponse) => this.filteredUsers = response.users);
+    this.subscriber = this.userFormGroup
+      ?.get('userInput')
+      ?.valueChanges.pipe(
+        tap(() => (this.isLoading = true)),
+        switchMap((value: string) =>
+          this.userService
+            .searchUser(value)
+            .pipe(finalize(() => (this.isLoading = false)))
+        )
+      )
+      .subscribe(
+        (response: UserResponse) => (this.filteredUsers = response.users)
+      );
   }
 
   public displaySelectedUser(user: any): string {

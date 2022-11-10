@@ -6,17 +6,18 @@ import { UserStateService } from '../../services/user-state.service';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.scss']
+  styleUrls: ['./user-details.component.scss'],
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
+  public user?: User;
+  private subscriber?: Subscription;
 
-  public user: User | undefined;
-  private subscriber: Subscription | undefined;
-
-  constructor(private userStateService: UserStateService) { }
+  constructor(private userStateService: UserStateService) {}
 
   ngOnInit(): void {
-    this.subscriber = this.userStateService.userSelectEvent.subscribe((user: User) => this.user = user);
+    this.subscriber = this.userStateService.userSelectEvent.subscribe(
+      (user: User) => (this.user = user)
+    );
   }
 
   ngOnDestroy(): void {

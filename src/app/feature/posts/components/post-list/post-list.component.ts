@@ -10,7 +10,7 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./post-list.component.scss'],
 })
 export class PostListComponent implements OnInit {
-  postDataSource: any | undefined;
+  postDataSource: any;
 
   constructor(
     private postService: PostService,
